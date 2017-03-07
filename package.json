@@ -1,0 +1,61 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "socketioChat",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev": "webpack-dev-server",
+    "update": "ncu",
+    "build": "NODE_ENV=production npm run clean && webpack",
+    "deploygh-pages": "npm run build && git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirie/socketChat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirie/socketChat/issues"
+  },
+  "homepage": "https://github.com/kirie/socketChat#readme",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "express": "^4.15.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "morgan": "^1.8.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router": "^3.0.2",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.0",
+    "redux-thunk": "^2.2.0",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-env": "^1.2.1",
+    "babel-preset-react": "^6.23.0",
+    "compression-webpack-plugin": "^0.3.2",
+    "css-loader": "^0.26.2",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.0",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.2",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.0-rc.0",
+    "webpack-dev-server": "^2.4.1"
+  }
+}
