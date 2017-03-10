@@ -3,11 +3,10 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-//const mongoose = require('mongoose');
 const router = require('./router');
-//const config = require('../config/config');
+const socketLogic = require('./socketlogic');
 
-const port = process.env.PORT || 3090;
+const port = process.env.PORT || 3000;
 const app = express();
 
 // app setup middleware
@@ -19,6 +18,10 @@ router(app);
 
 // server setup
 const server = http.createServer(app);
+
+const io = require('socket.io').listen(server);
+
+io.on('connection', socketLogic);
 
 server.listen(port, () => {
   console.log('Server running on port ', port);

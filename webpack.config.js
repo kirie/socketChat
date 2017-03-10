@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const CompressionPlugin = require('compression-webpack-plugin');
 
-const VENDOR_LIBS = ['react', 'redux', 'socket.io', 'react-dom', 'react-redux', 'redux-thunk', 'react-router'];
+const VENDOR_LIBS = ['react', 'redux', 'socket.io-client', 'react-dom', 'react-redux', 'redux-thunk', 'react-router'];
 
 module.exports = {
   entry: {
