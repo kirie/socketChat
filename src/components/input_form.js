@@ -18,7 +18,7 @@ class inputForm extends Component {
       user: this.props.user,
       text: this.state.text
     };
-    this.props.onMessageSubmit(message);  
+    this.props.onMessageSubmit(message);
     this.setState({ text: '' });
   }
 

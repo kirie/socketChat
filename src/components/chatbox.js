@@ -15,7 +15,8 @@ class chatBox extends Component {
       messages: [],
       text: '',
       user: '',
-      typing: []
+      typing: false,
+      timeout: null
     };
 
     this.initialSetup = this.initialSetup.bind(this);
@@ -25,6 +26,7 @@ class chatBox extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.nameSubmit = this.nameSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.timeoutFunction = this.timeoutFunction.bind(this);
   }
 
   componentDidMount() {
@@ -78,12 +80,27 @@ class chatBox extends Component {
     this.socket.emit('send:message', message);
   }
 
-  handleChange(user, typing) {
-    this.socket.emit('typing', { name: this.state.user, typing: typing });
+  timeoutFunction(user) {
+    console.log('typing false', user);
+    this.setState({ typing: false });
+    this.socket.emit('typing', { name: this.state.user, typing: false });
+  }
+
+  handleChange() {
+    if (this.state.timeout) {
+      clearTimeout(this.state.timeout);
+    }
+    this.setState({
+      typing: true,
+      timeout: setTimeout(() => {
+        this.timeoutFunction(this.state.user);
+      }, 2000)
+    });
+    console.log('handlechange state: ', this.state.typing);
   }
 
   nameSubmit(name) {
-    this.setState({ user});
+    this.setState({ user });
   }
 
   render() {
@@ -96,7 +113,11 @@ class chatBox extends Component {
       <div className="chatbox">
         <UsersList users={this.state.users} />
         <MessageList messages={this.state.messages} />
-        <InputForm onMessageSubmit={this.handleSubmit} user={this.state.user} typing={this.handleChange} />
+        <InputForm
+          onMessageSubmit={this.handleSubmit}
+          user={this.state.user}
+          typing={this.handleChange}
+        />
       </div>
     );
   }
