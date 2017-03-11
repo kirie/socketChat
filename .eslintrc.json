@@ -8,6 +8,7 @@
     ],
     "rules": {
       "brace-style": [2, "stroustrup", {"allowSingleLine": false}],
-      "comma-dangle": [2, "never"]
+      "comma-dangle": [2, "never"],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }

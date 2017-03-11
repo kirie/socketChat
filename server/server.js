@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const router = require('./router');
-const socketLogic = require('./socketlogic');
+const socketLogic = require('./socket_logic');
 
 const port = process.env.PORT || 3000;
 const app = express();

@@ -26,7 +26,6 @@ class chatBox extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.nameSubmit = this.nameSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.timeoutFunction = this.timeoutFunction.bind(this);
   }
 
   componentDidMount() {
@@ -65,10 +64,12 @@ class chatBox extends Component {
     const { users } = this.state;
     const index = users.indexOf(data.name);
     users.splice(index, 1);
+
     const notifyLeave = {
       user: 'Notification ',
       text: ` ${data.name} has left the chat`
     };
+
     this.setState({
       users: [users],
       messages: [...this.state.messages, notifyLeave]
@@ -109,6 +110,7 @@ class chatBox extends Component {
         <MakeName onNameSubmit={this.nameSubmit} />
       );
     }
+
     return (
       <div className="chatbox">
         <UsersList users={this.state.users} />
