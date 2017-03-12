@@ -13,6 +13,7 @@ class chatBox extends Component {
     this.state = {
       users: [],
       messages: [],
+      typingusers: [],
       text: '',
       user: '',
       typing: false,
@@ -26,6 +27,8 @@ class chatBox extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.nameSubmit = this.nameSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.typingNotify = this.typingNotify.bind(this);
+    this.handleTyping = this.handleTyping.bind(this);
   }
 
   componentDidMount() {
@@ -57,7 +60,16 @@ class chatBox extends Component {
   }
 
   typingNotify(data) {
-    console.log('someones typing...', data);
+    const { typingusers } = this.state;
+    const index = typingusers.indexOf(data.user);
+    if (data.typing && index === -1) {
+      typingusers.push(data.user);
+      this.setState({ typingusers });
+    }
+    else if (!data.typing && index !== -1) {
+      typingusers.splice(index, 1);
+      this.setState({ typingusers });
+    }
   }
 
   userLeft(data) {
@@ -81,8 +93,7 @@ class chatBox extends Component {
     this.socket.emit('send:message', message);
   }
 
-  timeoutFunction(user) {
-    console.log('typing false', user);
+  timeoutFunction() {
     this.setState({ typing: false });
     this.socket.emit('typing', { name: this.state.user, typing: false });
   }
@@ -97,15 +108,22 @@ class chatBox extends Component {
         this.timeoutFunction(this.state.user);
       }, 2000)
     });
-    console.log('handlechange state: ', this.state.typing);
+    this.socket.emit('typing', { name: this.state.user, typing: true });
   }
 
   nameSubmit(name) {
     this.setState({ user });
   }
 
+  handleTyping(eachUserTyping, idx, arr) {
+    if (arr.length === 1) {
+      return (<div key={idx + eachUserTyping}>{eachUserTyping} is typing a message</div>);
+    }
+    return (<div key={idx + eachUserTyping}>{arr.length} people are typing</div>);
+  }
+
   render() {
-    if(!this.state.user) {
+    if (!this.state.user) {
       return (
         <MakeName onNameSubmit={this.nameSubmit} />
       );
@@ -120,9 +138,10 @@ class chatBox extends Component {
           user={this.state.user}
           typing={this.handleChange}
         />
+        {this.state.typingusers.map(this.handleTyping)}
       </div>
     );
   }
 }
 
-export default chatBox
+export default chatBox;

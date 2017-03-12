@@ -4,7 +4,7 @@ module.exports = function (socket) {
   const name = users.registerGuest();
 
   socket.emit('initialSetup', {
-    name: name,
+    name,
     users: users.getUsers()
   });
 
