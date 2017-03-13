@@ -22,9 +22,3 @@ const messageList = (props) => {
 };
 
 export default messageList;
-
-function optionsList(eachOne){
-  console.log(eachOne);
-}
-
-{equipment.map(optionsList)}
