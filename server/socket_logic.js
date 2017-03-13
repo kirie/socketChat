@@ -1,7 +1,7 @@
 const users = require('./users');
 
 module.exports = function (socket) {
-  const name = users.registerGuest();
+  let name = users.registerGuest();
 
   socket.emit('initialSetup', {
     name,
@@ -9,6 +9,29 @@ module.exports = function (socket) {
   });
 
   socket.broadcast.emit('userJoin', { name });
+  
+  socket.on('namechange', (data) => {
+    if (users.registerUser(data.name)) {
+      const formerName = name;
+      users.vacate(formerName);
+      name = data.name;
+      const nameMsg = {
+        formerName,
+        name
+      };
+      socket.emit('changedName', nameMsg);
+      socket.broadcast.emit('changedName', nameMsg);
+    }
+  });
+
+  socket.on('message', (data) => {
+    const newMsg = {
+      user: data.name,
+      text: data.text
+    };
+    socket.emit('incoming', newMsg);
+    socket.broadcast.emit('incoming', newMsg);
+  });
 
   socket.on('typing', (data) => {
     socket.broadcast.emit('typingNotify', {
@@ -24,7 +47,7 @@ module.exports = function (socket) {
     });
   });
 
-  socket.on('disconnect', function () {
+  socket.on('disconnect', () => {
     socket.broadcast.emit('userLeft', { name });
     users.vacate(name);
   });

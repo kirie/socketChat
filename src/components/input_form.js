@@ -15,7 +15,6 @@ class inputForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const message = {
-      user: this.props.user,
       text: this.state.text
     };
     this.props.onMessageSubmit(message);
