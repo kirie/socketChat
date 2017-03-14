@@ -1,0 +1,24 @@
+.chat-input {
+  position            : relative;
+  overflow            : hidden;
+  padding             : 0 40px;
+  flex-shrink         : 0;
+}
+
+.chat-input input[type="text"] {
+  width               : 80%;
+  border              : 1px solid blue;
+  margin-left         : -20px;
+  margin-right        : -20px;
+}
+
+input[type="text"] {
+  background-color    : white;
+  margin              : 10px 0;
+  height              : 40px;
+  color               : #423E37;
+  width               : 60%;
+  border              : 2px solid #D3D3D3;
+  border-radius       : 5px;
+  padding             : 0 20px;
+}

@@ -1,0 +1,8 @@
+.messageList {
+  display               : flex;
+  flex                  : 1 1 90%;
+  flex-direction        : column;
+  background-color      : #eee;
+  overflow              : auto;
+  height                : 80vh;
+}

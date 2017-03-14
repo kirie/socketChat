@@ -1,7 +1,6 @@
 import React from 'react';
 
 const usersList = (props) => {
-
   function renderUsers(eachUser, idx) {
     return (
       <li key={idx}>

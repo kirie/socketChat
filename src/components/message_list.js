@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { PropTypes, Component } from 'react';
 import Message from './message';
 
-const messageList = (props) => {
+class messageList extends Component {
 
-  function renderMessages(eachMessage, idx) {
+  componentDidUpdate() {
+    const findID = `messageList${this.props.user}`;
+    const scrollDiv = document.getElementById(findID);
+    scrollDiv.scrollTop = scrollDiv.scrollHeight;
+  }
+
+  renderMessages(eachMessage, idx) {
     return (
       <Message
         key={idx}
@@ -13,12 +19,19 @@ const messageList = (props) => {
     );
   }
 
-  return (
-    <div className='displayList'>
-      <h2> Conversation: </h2>
-      { props.messages.map(renderMessages) }
-    </div>
-  );
+  render() {
+    const idName = `messageList${this.props.user}`;
+    return (
+      <div className="messageList" id={idName}>
+        { this.props.messages.map(this.renderMessages) }
+      </div>
+    );
+  }
+}
+
+messageList.propTypes = {
+  user: PropTypes.string.isRequired,
+  messages: PropTypes.array.isRequired
 };
 
 export default messageList;

@@ -1,4 +1,12 @@
 .chatbox {
-  background-color: white;
-//  background-color:$color-primary;
+  height            : 90vh;
+  display           : flex;
+  flex-direction    : column;
+  background-color  : white;
+  width             : 45%;
+  color             : black;
+  border            : 2px solid black;
+  border-radius     : 10px;
+  padding           : 4px;
+  margin            : 10px;
 }

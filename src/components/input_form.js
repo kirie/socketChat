@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class inputForm extends Component {
   constructor(props) {
@@ -23,15 +23,15 @@ class inputForm extends Component {
 
   changeHandler(event) {
     this.props.typing();
-    this.setState({ text : event.target.value });
+    this.setState({ text: event.target.value });
   }
 
   render() {
-    return(
-      <div className='inputForm'>
-        <h3>Write New Message</h3>
-        <form onSubmit={this.handleSubmit}>
+    return (
+      <div>
+        <form className="chat-input" onSubmit={this.handleSubmit}>
           <input
+            type="text"
             onChange={this.changeHandler}
             value={this.state.text}
           />
@@ -40,5 +40,10 @@ class inputForm extends Component {
     );
   }
 }
+
+inputForm.propTypes = {
+  onMessageSubmit: PropTypes.func.isRequired,
+  typing: PropTypes.func.isRequired
+};
 
 export default inputForm;
