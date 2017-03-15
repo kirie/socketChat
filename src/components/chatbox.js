@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
+import moment from 'moment';
 import InlineEdit from 'react-edit-inline';
 import UsersList from './users_list';
 import MessageList from './message_list';
@@ -123,7 +124,7 @@ class chatBox extends Component {
 
   // Submit a message
   handleSubmit(data) {
-    this.socket.emit('message', { name: this.state.user, servermsg: false, text: data.text });
+    this.socket.emit('message', { name: this.state.user, time: moment(), servermsg: false, text: data.text });
   }
 
   // user stopped typing.
@@ -131,7 +132,7 @@ class chatBox extends Component {
     this.setState({ typing: false });
     this.socket.emit('typing', { name: this.state.user, typing: false });
   }
-  
+
   // handle a user typing
   handleChange() {
     if (this.state.timeout) {

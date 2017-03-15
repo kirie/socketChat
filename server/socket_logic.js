@@ -9,7 +9,7 @@ module.exports = function (socket) {
   });
 
   socket.broadcast.emit('userJoin', { name });
-  
+
   socket.on('namechange', (data) => {
     if (users.registerUser(data.name)) {
       const formerName = name;
@@ -26,6 +26,7 @@ module.exports = function (socket) {
 
   socket.on('message', (data) => {
     const newMsg = {
+      time: data.time,
       user: data.name,
       text: data.text
     };
