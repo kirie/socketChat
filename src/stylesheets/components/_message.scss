@@ -1,27 +1,28 @@
-.message p {
+.message .msgtext {
   display              : flex;
   flex-direction       : column;
   flex-wrap            : wrap;
   border-radius        : 5px;
-  padding              : 8px;
-  margin               : 8px 12px;
-  max-width            : 50%;
+  padding              : 20px;
+  margin               : 15px 12px;
+  max-width            : 60%;
+  word-break           : break-all;
 }
 
 .others { 
-  margin               : 0px 0px -5px 12px;
+  margin               : 3px 0px -15px 12px;
   font-size            : 12px;
-  color                : #737373;
+  color                : #a9a9a9;
 }
 
-.left p { 
-  background-color     : #ccc; 
-  color                : black;
+.left .msgtext { 
+  background-color     : #535f74;
+  color                : #FFFFFF;
   float                : left; 
 }
 
-.right p { 
-  background-color     : #33c;
+.right .msgtext { 
+  background-color     : #667886;
   color                : #FFFFFF; 
   float                : right;
 }
@@ -29,12 +30,16 @@
 .servermsg {
   margin               : 20px 0px 20px 12px;
   display              : flex;
-  justify-content      : flex-start;
+  justify-content      : center;
   padding-top          : 2px;
-  color                : #003366;
+  color                : white;
 }
 
 .timestamp {
-  font-size: 12px;
-  color: #737373;
+  display              : flex;
+  flex-direction       : row;
+  justify-content      : flex-end;
+  font-size            : 10px;
+  color                : #a9a9a9;
+  float                : right;
 }

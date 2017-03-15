@@ -2,22 +2,27 @@
   position            : relative;
   overflow            : hidden;
   padding             : 0 40px;
+  background-color:#607D8D;
 }
 
 .chat-input input[type="text"] {
   width               : 100%;
-  border              : 1px solid blue;
   margin-left         : -20px;
   margin-right        : -20px;
 }
 
 input[type="text"] {
-  background-color    : white;
+  background-color    : #607D8D;
   margin              : 10px 0;
   height              : 40px;
+  font-size           : 22px;
   color               : #423E37;
   width               : 60%;
-  border              : 2px solid #D3D3D3;
-  border-radius       : 5px;
+  border-width        : 0px;
+  border-bottom       : solid #343D4E;
   padding             : 0 20px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }
