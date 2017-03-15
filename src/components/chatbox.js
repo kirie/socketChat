@@ -55,6 +55,7 @@ class chatBox extends Component {
     users.push(data.name);
     const temp = {
       user: 'Notification',
+      servermsg: true,
       text: `${data.formerName} changed their name to ${data.name}`
     };
     if (data.formerName === this.state.user) {
@@ -81,7 +82,7 @@ class chatBox extends Component {
   userJoined(data) {
     const notifyJoin = {
       user: 'Notification ',
-      type: 'Notify',
+      servermsg: true,
       text: ` ${data.name} has joined the chat`
     };
     this.setState({
@@ -97,7 +98,7 @@ class chatBox extends Component {
     users.splice(index, 1);
     const notifyLeave = {
       user: 'Notification ',
-      type: 'Notify',
+      servermsg: true,
       text: ` ${data.name} has left the chat`
     };
     this.setState({
@@ -122,7 +123,7 @@ class chatBox extends Component {
 
   // Submit a message
   handleSubmit(data) {
-    this.socket.emit('message', { name: this.state.user, text: data.text });
+    this.socket.emit('message', { name: this.state.user, servermsg: false, text: data.text });
   }
 
   // user stopped typing.

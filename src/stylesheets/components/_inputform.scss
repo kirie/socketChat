@@ -2,11 +2,10 @@
   position            : relative;
   overflow            : hidden;
   padding             : 0 40px;
-  flex-shrink         : 0;
 }
 
 .chat-input input[type="text"] {
-  width               : 80%;
+  width               : 100%;
   border              : 1px solid blue;
   margin-left         : -20px;
   margin-right        : -20px;

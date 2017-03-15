@@ -2,6 +2,10 @@ import React, { PropTypes, Component } from 'react';
 import Message from './message';
 
 class messageList extends Component {
+  constructor(props) {
+    super(props);
+    this.renderMessages = this.renderMessages.bind(this);
+  }
 
   componentDidUpdate() {
     const findID = `messageList${this.props.user}`;
@@ -13,6 +17,8 @@ class messageList extends Component {
     return (
       <Message
         key={idx}
+        actual={this.props.user}
+        servermsg={eachMessage.servermsg}
         user={eachMessage.user}
         text={eachMessage.text}
       />
@@ -30,7 +36,7 @@ class messageList extends Component {
 }
 
 messageList.propTypes = {
-  user: PropTypes.string.isRequired,
+  user: PropTypes.string,
   messages: PropTypes.array.isRequired
 };
 
