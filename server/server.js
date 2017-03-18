@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(cors());
 router(app);
+
 // server setup
 const server = http.createServer(app);
 const io = require('socket.io').listen(server);

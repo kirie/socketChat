@@ -12,6 +12,7 @@ class inputForm extends Component {
     this.changeHandler = this.changeHandler.bind(this);
   }
 
+  // Handle new message submission. Run onMessageSubmit from props
   handleSubmit(event) {
     event.preventDefault();
     const message = {
@@ -21,6 +22,7 @@ class inputForm extends Component {
     this.setState({ text: '' });
   }
 
+  // Handle typing of any characters.  Run typing() from props
   changeHandler(event) {
     this.props.typing();
     this.setState({ text: event.target.value });

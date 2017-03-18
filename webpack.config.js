@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const CompressionPlugin = require('compression-webpack-plugin');
 
-const VENDOR_LIBS = ['react', 'socket.io-client', 'react-dom', 'moment', 'react-router'];
+const VENDOR_LIBS = ['react', 'socket.io-client', 'react-dom', 'moment', 'react-router', 'react-edit-inline'];
 
 module.exports = {
   entry: {

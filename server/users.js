@@ -13,7 +13,7 @@ const users = {
     let name;
     let nextId = 1;
     while (!this.registerUser(name)) {
-      name = 'Guest ' + nextId;
+      name = `Guest ${nextId}`;
       nextId += 1;
     }
     return name;

@@ -48,7 +48,7 @@ class chatBox extends Component {
     this.setState({ users: data.users, user: data.name });
   }
 
-  // On recieved name change update
+  // On recieved name change update their name
   changedName(data) {
     const { users } = this.state;
     const index = users.indexOf(data.formerName);
@@ -74,7 +74,7 @@ class chatBox extends Component {
     }
   }
 
-  // Incoming messages
+  // Incoming messages from other users
   incoming(msg) {
     this.setState({ messages: [...this.state.messages, msg] });
   }
@@ -122,7 +122,7 @@ class chatBox extends Component {
     }
   }
 
-  // Submit a message
+  // Submit a message. 'mine' key determines whether this client sent it
   handleSubmit(data) {
     if (data.text !== '') {
       const msg = {
@@ -138,13 +138,13 @@ class chatBox extends Component {
     }
   }
 
-  // user stopped typing.
+  // User stopped typing. Emit typing to be false
   timeoutFunction() {
     this.setState({ typing: false });
     this.socket.emit('typing', { name: this.state.user, typing: false });
   }
 
-  // handle a user typing
+  // Handle a user typing
   handleChange() {
     if (this.state.timeout) {
       clearTimeout(this.state.timeout);
@@ -158,7 +158,7 @@ class chatBox extends Component {
     this.socket.emit('typing', { name: this.state.user, typing: true });
   }
 
-  // Name change using React Inline Edit
+  // Name change w/ React Inline Edit
   dataChanged(data) {
     if (this.state.users.indexOf(data.name) === -1) {
       this.socket.emit('namechange', { name: data.name });

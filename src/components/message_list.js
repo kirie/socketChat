@@ -37,7 +37,7 @@ class messageList extends Component {
 }
 
 messageList.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.string.isRequired,
   messages: PropTypes.array.isRequired
 };
 

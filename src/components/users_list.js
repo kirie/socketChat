@@ -7,35 +7,35 @@ const usersList = (props) => {
       userList = usersArr.slice(0, 8).sort().map((v, i) => {
         return (
           <span key={i + v}>
-            <i className="fa fa-circle" aria-hidden="true" />{v}, 
+            <i className="fa fa-circle" aria-hidden="true" />{v},
           </span>
         );
       });
       return (
-        <div>Active Users Online: 
+        <div>Active Users Online:
           <div>{userList} and {usersArr.length - 8} others</div>
         </div>
       );
     }
-    else {
-      userList = usersArr.map((v, i, a) => {
-        if (i === a.length - 1) {
-          return (
-            <span key={i + v}>
-              <i className="fa fa-circle" aria-hidden="true" />{v}
-            </span>
-          );
-        }
+    userList = usersArr.map((v, i, a) => {
+      if (i === a.length - 1) {
         return (
-          <span key={v + i}><i className="fa fa-circle" aria-hidden="true" />{v}</span>
+          <span key={i + v}>
+            <i className="fa fa-circle" aria-hidden="true" />{v}
+          </span>
         );
-      });
+      }
       return (
-        <div>Active Users Online:
-          <div>{userList}</div>
-        </div>
+        <span key={v + i}>
+          <i className="fa fa-circle" aria-hidden="true" />{v}
+        </span>
       );
-    }
+    });
+    return (
+      <div>Active Users Online:
+        <div>{userList}</div>
+      </div>
+    );
   }
 
   return (

@@ -3,14 +3,6 @@ import moment from 'moment';
 
 class message extends Component {
 
-  others() {
-    return (
-      <div>
-        {this.props.user}
-      </div>
-    );
-  }
-
   parseTimestamp(rawStr) {
     let stamp = '';
     const daysSince = moment().diff(rawStr, 'days');
@@ -29,6 +21,14 @@ class message extends Component {
     }
     return (
       <div>{stamp}</div>
+    );
+  }
+
+  others() {
+    return (
+      <div>
+        {this.props.user}
+      </div>
     );
   }
 
@@ -55,10 +55,11 @@ class message extends Component {
 }
 
 message.propTypes = {
-  text: PropTypes.string,
-  user: PropTypes.string,
-  mine: PropTypes.bool,
-  servermsg: PropTypes.bool
+  text: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired,
+  mine: PropTypes.bool.isRequired,
+  servermsg: PropTypes.bool.isRequired
 };
 
 

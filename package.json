@@ -7,6 +7,7 @@
     "clean": "rimraf dist",
     "dev": "webpack-dev-server",
     "update": "ncu",
+    "concurrent": "concurrently --kill-others \"node server/server.js\" \"npm run dev\"",
     "build": "NODE_ENV=production npm run clean && webpack",
     "deploygh-pages": "npm run build && git subtree push --prefix dist origin gh-pages"
   },
@@ -40,6 +41,7 @@
     "babel-preset-env": "^1.2.1",
     "babel-preset-react": "^6.23.0",
     "compression-webpack-plugin": "^0.3.2",
+    "concurrently": "^3.4.0",
     "css-loader": "^0.26.2",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",

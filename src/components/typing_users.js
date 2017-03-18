@@ -18,7 +18,7 @@ const typingUsers = (props) => {
 };
 
 typingUsers.propTypes = {
-  typing: PropTypes.array
+  typing: PropTypes.array.isRequired
 };
 
 export default typingUsers;
