@@ -1,34 +1,38 @@
-.message .msgtext {
+.msgtext {
   display              : flex;
   flex-direction       : column;
   flex-wrap            : wrap;
   border-radius        : 5px;
-  padding              : 20px;
+  padding              : 12px;
   margin               : 15px 12px;
   max-width            : 60%;
   word-break           : break-all;
 }
 
-.others { 
-  margin               : 3px 0px -15px 12px;
+.others {
+  margin               : 3px 0px -12px 12px;
   font-size            : 12px;
   color                : #a9a9a9;
 }
 
-.left .msgtext { 
-  background-color     : #535f74;
-  color                : #FFFFFF;
-  float                : left; 
+.left {
+  .msgtext { 
+    background-color   : $color-tertiary;
+    color              : #FFFFFF;
+    float              : left; 
+  }
 }
 
-.right .msgtext { 
-  background-color     : #667886;
-  color                : #FFFFFF; 
-  float                : right;
+.right {
+  .msgtext { 
+    background-color   : $color-quaternary;
+    color              : #FFFFFF; 
+    float              : right;
+  }
 }
 
 .servermsg {
-  margin               : 20px 0px 20px 12px;
+  margin               : 20px 0px 10px 12px;
   display              : flex;
   justify-content      : center;
   padding-top          : 2px;

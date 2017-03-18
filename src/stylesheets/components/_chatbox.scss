@@ -1,11 +1,59 @@
 .chatbox {
-  height            : 90vh;
+  height            : 95vh;
   display           : flex;
   flex-direction    : column;
-  background-color  : #607D8D;
+  background-color  : $color-secondary;
   width             : 45%;
   color             : black;
   border-radius     : 8px;
   padding           : 0px 0px;
   margin            : 10px;
 }
+
+.inlineedit {
+  font              : 100% "Francois One", sans-serif;
+  height            : 8vh;
+  text-align        : center;
+  color             : $color-primary;
+  font-size         : 42px;
+  margin-top        : 10px;
+  min-width         : 5%;
+  max-width         : 90%;
+}
+
+.fa-pencil {
+  margin-top        : 22px;
+  padding           : 2px;
+  color             : $color-primary;
+}
+
+.nametitle {
+  display           : flex;
+  justify-content   : center;
+  padding-bottom    : 20px;
+  height            : 10vh;
+  border-bottom     : solid $color-primary;
+  overflow          : hidden;
+}
+
+.editing {
+  height            : 8vh;
+  font              : 100% "Francois One", sans-serif;
+  font-size         : 32px;
+  min-width         : 5%;
+  max-width         : 50%;
+  background-color  : $color-primary;
+  margin-top        : 10px;
+  margin-left       : 12vw;
+  outline           : 0px;
+  padding           : 0px;
+  color             : white;
+  border            : none;
+}
+
+@media only screen and (max-width: 680px) {
+  .chatbox {
+    width: 80%;
+  }
+}
+

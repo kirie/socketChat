@@ -2,10 +2,11 @@
   display               : flex;
   flex                  : 1 1 90%;
   flex-direction        : column;
-//  background-color      : #eee;
   overflow              : auto;
   height                : 80vh;
   padding               : 12px 0px;
+
+  /* Gradient Generator*/
   background: rgb(52,61,78); /* Old browsers */
   background: -moz-linear-gradient(top, rgba(52,61,78,1) 0%, rgba(52,88,110,1) 52%, rgba(52,88,110,1) 52%, rgba(52,88,110,1) 53%, rgba(52,88,110,1) 54%, rgba(52,88,110,1) 61%, rgba(52,88,110,1) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, rgba(52,61,78,1) 0%,rgba(52,88,110,1) 52%,rgba(52,88,110,1) 52%,rgba(52,88,110,1) 53%,rgba(52,88,110,1) 54%,rgba(52,88,110,1) 61%,rgba(52,88,110,1) 100%); /* Chrome10-25,Safari5.1-6 */

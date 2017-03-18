@@ -1,0 +1,17 @@
+.users {
+  display          : flex;
+  flex-direction   : column;
+  overflow         : auto;
+  height           : 30vh;
+  padding          : 0px;
+  height           : 15vh;
+  margin-left      : 12px;
+  margin-right     : 12px;
+  color            : #C7C7CD;
+}
+
+.fa-circle {
+  padding-left     : 6px;
+  padding-right    : 6px;
+  color            : #556d48;
+}

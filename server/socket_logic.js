@@ -30,7 +30,6 @@ module.exports = function (socket) {
       user: data.name,
       text: data.text
     };
-    socket.emit('incoming', newMsg);
     socket.broadcast.emit('incoming', newMsg);
   });
 

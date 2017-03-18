@@ -1,28 +1,26 @@
 .chat-input {
-  position            : relative;
-  overflow            : hidden;
-  padding             : 0 40px;
-  background-color:#607D8D;
-}
-
-.chat-input input[type="text"] {
-  width               : 100%;
-  margin-left         : -20px;
-  margin-right        : -20px;
+  overflow              : hidden;
+  padding               : 0 40px;
+  background-color      : $color-secondary;
+  input[type="text"] {
+    width               : 100%;
+    margin-left         : -20px;
+    margin-right        : -20px;
+  }
 }
 
 input[type="text"] {
-  background-color    : #607D8D;
-  margin              : 10px 0;
-  height              : 40px;
-  font-size           : 22px;
-  color               : #423E37;
-  width               : 60%;
-  border-width        : 0px;
-  border-bottom       : solid #343D4E;
-  padding             : 0 20px;
+  background-color      : $color-secondary;
+  margin                : 10px 0;
+  height                : 8vh;
+  font-size             : 22px;
+  color                 : black;
+  width                 : 60%;
+  border-width          : 0px;
+  border-bottom         : solid $color-primary;
+  padding               : 0 20px;
 }
 
-textarea:focus, input:focus{
-  outline: none;
+input:focus{
+  outline               : none;
 }

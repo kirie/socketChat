@@ -29,12 +29,11 @@ class message extends Component {
     }
     return (
       <div>{stamp}</div>
-    )
+    );
   }
 
   render() {
-    const leftRight = this.props.user === this.props.actual ? 'message right' : 'message left';
-
+    const leftRight = this.props.mine ? 'message right' : 'message left';
     if (this.props.servermsg) {
       return (
         <div className="servermsg">
@@ -48,7 +47,7 @@ class message extends Component {
         <div className="others">{leftRight === 'message left' ? this.others() : null}</div>
         <div className="msgtext">
           {this.props.text}
-        <div className="timestamp">{this.parseTimestamp(this.props.time)}</div>
+          <div className="timestamp">{this.parseTimestamp(this.props.time)}</div>
         </div>
       </div>
     );
@@ -58,7 +57,8 @@ class message extends Component {
 message.propTypes = {
   text: PropTypes.string,
   user: PropTypes.string,
-  actual: PropTypes.string
+  mine: PropTypes.bool,
+  servermsg: PropTypes.bool
 };
 
 

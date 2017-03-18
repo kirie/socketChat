@@ -124,7 +124,18 @@ class chatBox extends Component {
 
   // Submit a message
   handleSubmit(data) {
-    this.socket.emit('message', { name: this.state.user, time: moment(), servermsg: false, text: data.text });
+    if (data.text !== '') {
+      const msg = {
+        name: this.state.user,
+        time: moment(),
+        servermsg: false,
+        text: data.text,
+        mine: false
+      };
+      this.socket.emit('message', msg);
+      msg.mine = true;
+      this.setState({ messages: [...this.state.messages, msg] });
+    }
   }
 
   // user stopped typing.
@@ -147,20 +158,30 @@ class chatBox extends Component {
     this.socket.emit('typing', { name: this.state.user, typing: true });
   }
 
-  // Name changed on React Inline Edit
+  // Name change using React Inline Edit
   dataChanged(data) {
-    this.socket.emit('namechange', { name: data.name });
+    if (this.state.users.indexOf(data.name) === -1) {
+      this.socket.emit('namechange', { name: data.name });
+    }
+    else {
+      this.setState({ user: this.state.user });
+    }
   }
 
   render() {
     return (
       <div className="chatbox">
+        <div className="nametitle">
+          <InlineEdit
+            className="inlineedit"
+            activeClassName="editing"
+            text={this.state.user}
+            change={this.dataChanged}
+            paramName="name"
+          />
+          <i className="fa fa-pencil" aria-hidden="true" />
+        </div>
         <UsersList users={this.state.users} />
-        <InlineEdit
-          text={this.state.user}
-          change={this.dataChanged}
-          paramName="name"
-        />
         <MessageList
           user={this.state.user}
           messages={this.state.messages}

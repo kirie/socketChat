@@ -17,7 +17,7 @@ class messageList extends Component {
     return (
       <Message
         key={idx}
-        actual={this.props.user}
+        mine={eachMessage.mine}
         servermsg={eachMessage.servermsg}
         time={eachMessage.time}
         user={eachMessage.user}

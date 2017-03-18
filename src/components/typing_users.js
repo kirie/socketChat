@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const typingUsers = (props) => {
-  function handleTyping(eachUserTyping, idx, arr) {
+  function typing(arr) {
     if (arr.length === 1) {
-      return (<div key={idx + eachUserTyping}>{eachUserTyping} is typing a message</div>);
+      return (<div>{arr[0]} is typing a message.</div>);
     }
-    return (<div key={idx + eachUserTyping}>{arr.length} people are typing</div>);
+    else if (arr.length > 1) {
+      return (<div>{arr.length} people are currently typing.</div>);
+    }
+    return null;
   }
-
   return (
     <div className="typingusers">
-      {props.typing.map(handleTyping)}
+      {typing(props.typing)}
     </div>
   );
+};
+
+typingUsers.propTypes = {
+  typing: PropTypes.array
 };
 
 export default typingUsers;

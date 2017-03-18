@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const CompressionPlugin = require('compression-webpack-plugin');
 
-const VENDOR_LIBS = ['react', 'socket.io-client', 'react-dom', 'react-router'];
+const VENDOR_LIBS = ['react', 'socket.io-client', 'react-dom', 'moment', 'react-router'];
 
 module.exports = {
   entry: {
@@ -28,7 +28,7 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
-          loader: ['css-loader', 'sass-loader']
+          loader: ['css-loader', 'postcss-loader', 'sass-loader']
         })
       }
     ]
