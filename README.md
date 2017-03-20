@@ -25,8 +25,6 @@ npm i
 
 npm run concurrent
 
-Enjoy a snack/beverage of your choice
-
 Open a browser to localhost:8080
 ```
 

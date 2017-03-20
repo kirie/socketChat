@@ -19,6 +19,9 @@ input[type="text"] {
   border-width          : 0px;
   border-bottom         : solid $color-primary;
   padding               : 0 20px;
+  &::placeholder {
+    color               : #a9a9a9;
+  }
 }
 
 input:focus{
