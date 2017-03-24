@@ -1,6 +1,12 @@
 # SocketChat
 
-Realtime chat messaging with Socket.io and React.  
+Simple realtime chat messaging with Socket.io and React.
+
+### Motivation
+
+Front End coding challenge
+
+### Design
 
 ![Alt text](https://cloud.githubusercontent.com/assets/5178299/24074779/9dc9ec86-0bcc-11e7-8dc7-da8123773479.png "Chat")
 
@@ -17,7 +23,6 @@ Realtime chat messaging with Socket.io and React.
 Node.js
 ```
 
-
 ### Installing and running in development/demonstration mode
 
 ```
@@ -28,8 +33,7 @@ npm run concurrent
 Open a browser to localhost:8080
 ```
 
-
-## Built With
+##
 
 * [React](https://github.com/facebook/react) - View/UI
 * [Babel](https://github.com/babel/babel) - Transpilation From ES6
